@@ -26,12 +26,13 @@
     <!-- Styles -->
     <link type="text/css" rel="stylesheet" href="css/plugins.css" />
     <link type="text/css" rel="stylesheet" href="css/style.css?ver=5.0" />
+    <link rel="stylesheet" type="text/css" href="css/vegas.min.css">
     <!--[if lt IE 9]> <script type="text/javascript" src="js/modernizr.custom.js"></script> <![endif]-->
     <!-- !Styless -->
 
 </head>
 
-<body class="home-static">
+<body class="full_kenburns">
 
 
     <!-- Main -->
@@ -103,7 +104,7 @@
                                 <li><a href="index.html">Home</a></li>
                             </ul>
                         </li>
-                        <li class="menu-item"><a href="#">About</a></li>
+                        <li class="menu-item"><a href="about.html">About</a></li>
                         <li class="menu-item"><a href="#">Projects</a></li>
                         <li class="menu-item"><a href="#">Contact</a></li>
                     </ul>
@@ -181,9 +182,12 @@
                     <div class="bg_color"></div>
                     <!-- !Overlay Color -->
 
-                    <!-- Overlay Image -->
-                    <div class="bg_image" data-bg-img="img/hero/bg.jpg"></div>
-                    <!-- !Overlay Image -->
+                    <!-- Overlay Slider -->
+                    <div class="overlay_slider vegas-slide">
+                        <input type="hidden" value="img/hero/bg.jpg" />
+                        <!-- Add more images as needed -->
+                    </div>
+                    <!-- !Overlay Slider -->
 
                 </div>
                 <!-- Overlay (of hero header) -->
@@ -458,7 +462,7 @@
                                             </div>
 
                                             <div class="desc">
-                                                <p> Dive into the world of AI-driven gameplay with my Flappy Bird project, where a custom OpenAI Gym environment brings the iconic game to life for reinforcement learning exploration. This AI doesn’t just flap
+                                                <p> Dive into the world of AI-driven gameplay with my Flappy Bird project, where a custom OpenAI Gym environment brings the iconic game to life for reinforcement learning exploration. This AI doesn't just flap
                                                     aimlessly—it learns through trial and error, optimizing survival strategies with each game iteration. By balancing risk and reward, the agent hones its ability to navigate obstacles and master timing.
                                                     in action!
                                                 </p>
@@ -574,8 +578,8 @@
                                             <div class="desc">
                                                 <p>Unlock the power of data with my custom Valorant dataset, meticulously crafted through web scraping and advanced data cleaning techniques. This project dives deep into the competitive world of Valorant,
                                                     extracting and refining match statistics, player performance metrics, and more to create a comprehensive and actionable dataset. From raw web data to structured insights, the project showcases expertise
-                                                    in web scraping, handling noisy data, and building a dataset primed for analysis and visualization. Whether it’s identifying trends or powering machine learning models, this dataset offers a treasure
-                                                    trove for Valorant enthusiasts and data science alike. Explore the intersection of gaming and data to reveal the secrets hidden in Valorant’s competitive ecosystem! </p>
+                                                    in web scraping, handling noisy data, and building a dataset primed for analysis and visualization. Whether it's identifying trends or powering machine learning models, this dataset offers a treasure
+                                                    trove for Valorant enthusiasts and data science alike. Explore the intersection of gaming and data to reveal the secrets hidden in Valorant's competitive ecosystem! </p>
                                             </div>
 
                                             <div class="buttons">
@@ -611,7 +615,7 @@
 
                                             <div class="desc">
                                                 <p></p>Step into the world of classic arcade gaming reimagined with AI. My Snake AI project uses reinforcement learning to conquer the ever-growing challenges of the iconic game. By designing a custom OpenAI
-                                                Gym environment, I translated the snake’s dynamic gameplay into a reinforcement learning playground. This AI learns to strategize, optimize paths, and anticipate future moves, all while avoiding collisions
+                                                Gym environment, I translated the snake's dynamic gameplay into a reinforcement learning playground. This AI learns to strategize, optimize paths, and anticipate future moves, all while avoiding collisions
                                                 and chasing the highest score. Through continuous feedback and self-improvement, it evolves into a highly efficient snake-master, demonstrating the power of RL in tackling spatial and strategic problems.
                                                 See how the fusion of AI and gaming creates a smarter, more efficient slither! </div>
 
@@ -1114,7 +1118,28 @@
     <script type="text/javascript" src="js/plugins.js"></script>
     <!--[if lt IE 10]> <script type="text/javascript" src="js/ie8.js"></script> <![endif]-->
     <script type="text/javascript" src="js/init.js?ver=5.0"></script>
+    <script type="text/javascript" src="js/vegas.min.js"></script>
     <!-- !Scripts -->
+
+    <script>
+        $(document).ready(function() {
+            var slides = [];
+            $('.overlay_slider.vegas-slide input[type="hidden"]').each(function() {
+                slides.push({
+                    src: $(this).val()
+                });
+            });
+
+            $('.overlay_slider.vegas-slide').vegas({
+                slides: slides,
+                overlay: true,
+                transition: 'fade',
+                animation: 'kenburns',
+                delay: 7000,
+                transitionDuration: 2000
+            });
+        });
+    </script>
 
 </body>
 
